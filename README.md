@@ -8,3 +8,5 @@ Alunos:
 - Eduardo Amaro Maciel
 - Guilherme Luis da Silva
 - Thiago Amorion
+
+![aa](https://user-images.githubusercontent.com/73178068/177080544-3a802b6f-29ab-462e-8a3b-3d1eccd65058.png)
