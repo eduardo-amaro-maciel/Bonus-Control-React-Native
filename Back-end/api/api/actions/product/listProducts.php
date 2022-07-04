@@ -1,0 +1,30 @@
+<?php
+
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+//header("Access-Control-Allow-Headers: *");
+//header("Access-Control-Allow-Methods: GET,PUT,POST,DELETE");
+
+include_once '../../connection.php';
+
+$sql = "SELECT * FROM products ORDER BY id ASC";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+if($stmt->rowCount() > 0){
+    while($rows = $stmt->fetch(PDO::FETCH_ASSOC)){
+        extract($rows);
+
+        $list_products["products"][$id] = [
+            'id' => $id,
+            'name' => $name,
+            'points_earnings' => $points_earnings,
+            'points_required' => $points_required,
+            'value' => $value
+        ];
+    }
+}
+
+
+http_response_code(200);
+echo json_encode($list_products);
